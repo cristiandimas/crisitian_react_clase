@@ -1,6 +1,8 @@
 import  { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import  Loader  from './components/Loader.jsx'
+import Page from './pages/Dashboard.jsx';
+
 
 // Componentes lazy (carga perezosa)
 const Home = lazy(() => import('./pages/Home.jsx'));
@@ -17,6 +19,11 @@ const App = () => {
           <Route path="/login" element={
             <Suspense fallback={<Loader />}>
               <Login />
+            </Suspense>
+          } />
+          <Route path="/dashboard" element={
+            <Suspense fallback={<Loader />}>
+              <Page />
             </Suspense>
           } />
           
